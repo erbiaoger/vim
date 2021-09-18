@@ -1,26 +1,3 @@
-set number
-set hlsearch
-se rnu
-
-syntax on
-set cursorline
-set wrap
-set wildmenu
-
-" 切换 buffer
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> [n :bnext<CR>
-" use ctrl+h/j/k/l switch window
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-
-map S :w<CR>
-map Q :q<CR>
-map Z :exit<CR>
-inoremap jj <Esc>
-
 call plug#begin('~/.vim/plugged')
   "{{ vimtex 
   Plug 'lervag/vimtex'
@@ -60,10 +37,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'iamcco/mathjax-support-for-mkdp'
   Plug 'iamcco/markdown-preview.vim'
 
+  "安装颜色主题
+  Plug 'morhetz/gruvbox'
+  
 
 call plug#end()
 
-"配置
+
+"配置"{{
   "markdown-preview
       let g:mkdp_path_to_chrome = ""
     " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
@@ -99,4 +80,46 @@ call plug#end()
     imap <silent> <F8> <Plug>MarkdownPreview        " 插入模式
     nmap <silent> <F9> <Plug>StopMarkdownPreview    " 普通模式
     imap <silent> <F9> <Plug>StopMarkdownPreview    " 插入模式
+
+
+    set t_Co=256
+    let g:gruvbox_contrast_dark='medium' 
+    colorscheme gruvbox
+
+    set background=dark    " Setting dark mode
+
+
+    "}}
+
+set number
+set hlsearch
+set relativenumber
+set ruler
+syntax on
+set wrap
+set wildmenu
+set showmode
+set showcmd
+set statusline=%-0120.120(%F%m%)%-0120.120([%l,%c]%)%p%%
+set laststatus=2
+set history=100
+set cursorline
+hi CursorLine ctermbg=black ctermfg=green
+set cursorcolumn
+hi CursorColumn ctermbg=black ctermfg=green
+
+" 切换 buffer
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> [n :bnext<CR>
+" use ctrl+h/j/k/l switch window
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+map S :w<CR>
+map Q :q<CR>
+map Z :exit<CR>
+inoremap jj <Esc>
+
 
