@@ -82,9 +82,8 @@ call plug#end()
 	
 	
 	set t_Co=256
-	let g:gruvbox_contrast_dark='medium' 
-	colorscheme gruvbox
-	
+	let g:gruvbox_contrast_dark='hard' 
+	"colorscheme gruvbox
 	set background=dark    " Setting dark 
 "}}
 
@@ -107,7 +106,8 @@ hi CursorLine ctermbg=black
 set cursorcolumn
 hi CursorColumn ctermbg=black 
 set list
-set listchars=eol:$,tab:>- 
+set listchars=tab:>- 
+"set listchars=eol:$,tab:>- 
 hi SpecialKey ctermfg=DarkRed guifg=grey70
 set noexpandtab
 set shiftwidth=4
@@ -115,6 +115,8 @@ set tabstop=4
 set softtabstop=4
 set autoindent
 set scrolloff=2
+set autowrite
+
 
 
 " 切换 buffer
@@ -129,4 +131,6 @@ noremap <C-l> <C-w>l
 map S :w<CR>
 map Q :q<CR>
 inoremap jj <Esc>
+map T :term<CR> 
+noremap <C-t> :tabnew<CR>
 
